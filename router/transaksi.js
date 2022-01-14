@@ -162,16 +162,16 @@ app.delete("/:id_transaksi", (request, response) => {
 })
  
 // endpoint untuk mengubah status transaksi
-app.put("/status/:id_transaksi", (req, res) => {
+app.post("/status/:id_transaksi", (req, res) => {
     // kita tampung parameter
     let param = {
-        id_transaksi: req.params.idid_transaksi
+        id_transaksi: req.params.id_transaksi
     }
     // kita tampung nilai status
     let data = {
         status: req.body.status
     }
- 
+        console.log(req.body)
     // proses update status transaksi
     transaksi.update(data, {where: param})
     .then(result => {
