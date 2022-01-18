@@ -3,13 +3,13 @@ const express = require("express")
 const app = express()
 app.use(express.json())
  
-// // *** call auth ***
-// // panggil fungsi auth -> validasi token
-// const {auth} = require("./login")
+// *** call auth ***
+// panggil fungsi auth -> validasi token
+const {auth} = require("./login")
  
-// // fungsi auth dijadikan middleware
-// app.use(auth)
-// // ---------------------------------
+// fungsi auth dijadikan middleware
+app.use(auth)
+// ---------------------------------
 
 // call model
 const models = require("../models/index")
@@ -171,7 +171,7 @@ app.post("/status/:id_transaksi", (req, res) => {
     let data = {
         status: req.body.status
     }
-        console.log(req.body)
+        // console.log(req.body)
     // proses update status transaksi
     transaksi.update(data, {where: param})
     .then(result => {

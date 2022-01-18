@@ -8,7 +8,11 @@ const user = require("../models/index").user
 const md5 = require("md5")
  
 // *** call auth ***
+const {auth} = require("./login")
  
+// fungsi auth dijadikan middleware
+app.use(auth)
+
 // middleware for allow the request from body (agar bisa membaca data yg di body)
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())

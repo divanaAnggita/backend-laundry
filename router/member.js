@@ -4,13 +4,13 @@ const app = express()
 //memanggil model untuk member
 const member = require("../models/index").member
 
-// //memmanggil auth
-// // panggil fungsi auth -> validasi token
-// const {auth} = require("./login")
+//memmanggil auth
+// panggil fungsi auth -> validasi token
+const {auth} = require("./login")
  
-// // fungsi auth dijadikan middleware
-// app.use(auth)
-// // ---------------------------------
+// fungsi auth dijadikan middleware
+app.use(auth)
+// ---------------------------------
 
 //perangkat untuk memmaggil request dari body
 //agar bisa membaca data yang di body

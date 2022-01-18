@@ -5,7 +5,10 @@ const app = express()
 const paket = require("../models/index").paket
  
 // *** call auth ***
+const {auth} = require("./login")
  
+// fungsi auth dijadikan middleware
+app.use(auth)
 // middleware for allow the request from body (agar bisa membaca data yg dibody)
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
